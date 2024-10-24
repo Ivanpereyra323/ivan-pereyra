@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Créditos</title>
+    <title>Simulador de Crédito</title>
 </head>
 <body>
-    <h1>Simulador de Créditos</h1>
+    <h1>Simulador de Crédito</h1>
+
+    <div>
+        <label for="monto">Monto del crédito:</label>
+        <input type="number" id="monto" placeholder="Ej: 100000">
+    </div>
+    
+    <div>
+        <label for="tasa">Tasa de interés anual (%):</label>
+        <input type="number" id="tasa" placeholder="Ej: 5">
+    </div>
+    
+    <div>
+        <label for="anios">Plazo en años:</label>
+        <input type="number" id="anios" placeholder="Ej: 10">
+    </div>
+
+    <button onclick="simuladorCredito()">Simular</button>
+
+    <div id="resultado"></div>
 
     <script src="index.js"></script>
 </body>
 </html>
+
