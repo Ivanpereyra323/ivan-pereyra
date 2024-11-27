@@ -15,20 +15,22 @@
         body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             background-color: #f0f4f8;
             font-family: Arial, sans-serif;
+            padding: 20px;
         }
 
         .container {
-            max-width: 400px;
+            max-width: 600px;
             width: 100%;
             padding: 20px;
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-top: 20px;
         }
 
         h1 {
@@ -76,17 +78,32 @@
 
         #resultado {
             margin-top: 20px;
-            padding: 15px;
+            padding: 20px;
             text-align: left;
             background-color: #f9f9f9;
             border-radius: 8px;
             box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+            max-width: 100%;
         }
 
         #resultado p {
             font-size: 16px;
             color: #333;
             margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        #instrucciones {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #555;
+            text-align: left;
+        }
+
+        canvas {
+            display: block;
+            margin-top: 20px;
+            width: 100%;
         }
     </style>
 </head>
@@ -94,6 +111,11 @@
 <body>
     <div class="container">
         <h1>Simulador de Crédito</h1>
+
+        <div id="instrucciones">
+            <p>Introduce el monto, la tasa de interés anual y el plazo en años para simular tu crédito.</p>
+            <p>Presiona "Simular" para ver los resultados y un gráfico de tu saldo restante.</p>
+        </div>
 
         <div class="input-group">
             <label for="monto">Monto del crédito:</label>
@@ -111,11 +133,15 @@
         </div>
 
         <button onclick="simuladorCredito()">Simular</button>
+        <button id="resetearSimulacion">Reiniciar Simulación</button>
+
 
         <div id="resultado"></div>
+        <canvas id="graficoSaldo" width="400" height="200"></canvas>
     </div>
 
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
