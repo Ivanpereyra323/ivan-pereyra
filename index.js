@@ -57,8 +57,8 @@ function registrarPago(mes, cuotaMensual, interes, abonoCapital, saldo) {
 }
 
 async function simuladorCredito() {
-    pagos = [];  // Reinicia el array antes de comenzar una nueva simulación
-    localStorage.removeItem('pagos');  // Borra los pagos previos de localStorage
+    pagos = [];  
+    localStorage.removeItem('pagos');  
 
     let entradas = await capturarEntradas();
     if (!entradas) return;
@@ -77,7 +77,7 @@ async function simuladorCredito() {
         let abonoCapital = cuotaMensual - interes;
         saldo -= abonoCapital;
 
-        if (saldo < 0) saldo = 0;  // Evita valores negativos
+        if (saldo < 0) saldo = 0;  
 
         registrarPago(mes, cuotaMensual, interes, abonoCapital, saldo);
 
@@ -88,7 +88,7 @@ async function simuladorCredito() {
             Saldo restante: $${saldo.toFixed(2)}</p>
         `;
 
-        if (saldo === 0) break;  // Detenemos si el saldo es 0
+        if (saldo === 0) break;  
     }
 
     generarGrafico();
